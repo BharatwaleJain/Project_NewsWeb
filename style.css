@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-bg-color: #f3faff;
+    --secondary-bg-color: #ffffff;
+    --primary-text-color: #183b56;
+    --secondary-text-color: #577592;
+    --accent-color: #2294ed;
+    --accent-color-dark: #1d69a3;
+    --hover-bg-color: #e6f4ff;
+    --overlay-color: rgba(0, 0, 0, 0.8);
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    color: var(--primary-text-color);
+    background-color: var(--primary-bg-color);
+}
+
+p {
+    font-family: "Nunito", sans-serif;
+    color: var(--secondary-text-color);
+    line-height: 1.4rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1180px;
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+nav {
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0 0 4px #bbd0e2;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    padding: 8px 0;
+}
+
+.main-nav {
+    justify-content: space-between;
+}
+
+.company-logo h1 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-right: 16px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul {
+    gap: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.hover-link {
+    cursor: pointer;
+    padding: 8px;
+    transition: background-color 0.3s;
+}
+
+.hover-link:hover {
+    background-color: var(--hover-bg-color);
+}
+
+.hover-link:active {
+    color: var(--accent-color-dark);
+}
+
+.nav-item.active {
+    color: var(--accent-color);
+}
+
+.search-bar {
+    height: 32px;
+    gap: 8px;
+    margin-left: 24px;
+}
+
+.news-input {
+    width: 200px;
+    height: 100%;
+    padding-inline: 12px;
+    border-radius: 4px;
+    border: 2px solid #bbd0e2;
+}
+
+.search-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: var(--accent-color-dark);
+}
+
+main {
+    padding: 20px;
+    margin-top: 80px;
+}
+
+.cards-container {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 360px;
+    min-height: 400px;
+    box-shadow: 0 0 4px #d4ecff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--secondary-bg-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 1px 1px 8px #d4ecff;
+    transform: translateY(-2px);
+}
+
+.card-header img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 12px;
+}
+
+.news-source {
+    margin-block: 2px;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.hamburger-menu .bar {
+    width: 24px;
+    height: 3px;
+    background-color: var(--primary-text-color);
+    transition: all 0.3s;
+}
+
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--overlay-color);
+    z-index: 98;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: var(--secondary-bg-color);
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        justify-content: center;
+        display: none;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .search-bar {
+        margin-left: 0;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}
